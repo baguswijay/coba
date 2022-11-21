@@ -14,9 +14,6 @@
     <button type="submit" name="Tambah" class="btn">
         Simpan
     </button>
-
-
-    
 </form>
 
 
