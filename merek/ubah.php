@@ -21,7 +21,8 @@
 <br>
 <br>
 <br>
-<br> 
+<br>
+
 <form action="proses.php" method="post">
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <input type="text" name="nama" value="<?php echo $nama; ?>">
