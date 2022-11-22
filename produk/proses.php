@@ -4,8 +4,8 @@
 
     if(isset($_POST['Tambah'])){
         $nama = $_POST['nama'];
-        $jenis = $_POST['jenis'];
-        $merek = $_POST['merek'];
+        $jenis = $_POST['jenis_id'];
+        $merek = $_POST['merek_id'];
         $harga = $_POST['harga'];
 
         $result = mysqli_query($conn, "INSERT INTO produk (nama,jenis_id,merek_id, harga) VALUES ('$nama', '$jenis', '$merek', '$harga')");
