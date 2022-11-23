@@ -41,7 +41,6 @@
                     ';
                 }
             }
-
         ?>
     </select>
     
@@ -52,10 +51,12 @@
             $result = $conn->query($query);
 
             if (mysqli_num_rows($result)> 0) {
-                while($row = mysqli_fetch_array($result)){
-                    echo '
-                        <option value="'.$row['id'].'">'.$row['nama'].'</option>
-                    ';
+                while($row = mysqli_fetch_array($result))
+                {
+                    if($merek == $row['id']){
+                        $selected = "selected";
+                    }
+                    echo '<option value="'.$row['id'].' '.$selected.'" >'.$row['nama'].'</option>';
                 }
             }
 
