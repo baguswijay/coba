@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../style.css">
 
 <div class="navbar">
+    <a href="../login/index.php">Home</a>
     <a href="../merek/index.php">Merek</a>
     <a href="#">Jenis</a>
     <a href="../produk/index.php">Produk</a>

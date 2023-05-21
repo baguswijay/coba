@@ -1,15 +1,25 @@
 <?php 
     require('../connect.php');
+    $start = microtime(true);
 
-    $data_produk = mysqli_query($conn, "SELECT produk.id, produk.nama, merek.nama as merek, jenis.nama as jenis, produk.harga
+    $data_produk = mysqli_query($conn, "SELECT produk.id, produk.nama, merek.nama as merek, 
+    jenis.nama as jenis, produk.harga
     FROM ((produk
     INNER JOIN merek ON merek.id = produk.merek_id)
-    INNER JOIN jenis ON jenis.id = produk.jenis_id);");
+    INNER JOIN jenis ON jenis.id = produk.jenis_id)
+    Order By produk.nama ASC;");
+    
+    $end = microtime(true);
+    $exeTime = (($end - $start)*1000);
+    
+    $memoryUsage = memory_get_usage();
+    
 ?>
 
 <link rel="stylesheet" href="../style.css" type="text/css">
 
 <div class="navbar">
+    <a href="../login/index.php">Home</a>
     <a href="../merek/index.php">Merek</a>
     <a href="../jenis/index.php">Jenis</a>
     <a href="#">Produk</a>
@@ -28,6 +38,8 @@
     </tr>
 
     <?php 
+        echo "Waktu Eksekusi Query yang dibutuhkan: ".$exeTime." ms <br>";
+        echo "Memory yang dipakai ".round($memoryUsage/1048576)." MB";
         $i =1;
         while ($data = mysqli_fetch_array($data_produk)) {
     ?>

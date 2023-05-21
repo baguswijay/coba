@@ -1,13 +1,19 @@
 <?php
     require('../connect.php');
 
+    $start = microtime(true);
+
     $data_merek = mysqli_query($conn, "SELECT * FROM merek");
 
+    $end = microtime(true);
+    $exeTime = (($end - $start)*1000);
+    
 ?>
 
 <link rel="stylesheet" type="text/css" href="../style.css">
 
 <div class="navbar">
+    <a href="../login/index.php">Home</a>
     <a href="#">Merek</a>
     <a href="../jenis/index.php">Jenis</a>
     <a href="../produk/index.php">Produk</a>
@@ -26,6 +32,7 @@
             </tr>
 
             <?php
+                echo "Waktu Eksekusi Query yang dibutuhkan: ".$exeTime." ms";
                 $i = 1;
                 while ($data = mysqli_fetch_array($data_merek)){
             ?>

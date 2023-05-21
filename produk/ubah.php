@@ -36,6 +36,12 @@
 
             if (mysqli_num_rows($result)> 0) {
                 while($row = mysqli_fetch_array($result)){
+                    if($row['id'] == $jenis){
+                        // $selected = 'selected';
+                        echo '
+                        <option value="'.$row['id'].'" selected>'.$row['nama'].'</option>
+                    ';
+                    }
                     echo '
                         <option value="'.$row['id'].'">'.$row['nama'].'</option>
                     ';
@@ -54,10 +60,11 @@
                 while($row = mysqli_fetch_array($result))
                 {
                     if($merek == $row['id']){
-                        $selected = "selected";
+                    echo '<option value="'.$row['id'].'" selected>'.$row['nama'].'</option>';
+                        
                     }
-                    echo '<option value="'.$row['id'].' '.$selected.'" >'.$row['nama'].'</option>';
-                }
+                    echo '<option value="'.$row['id'].'">'.$row['nama'].'</option>';
+                }   
             }
 
         ?>
